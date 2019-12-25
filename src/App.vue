@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <product-list-one>
-      <h2>Product List One</h2>
-    </product-list-one>
-    <product-list-two>
-      <h2>Product List Two</h2>
-    </product-list-two>
+    <!--<product-list-one :products="products"></product-list-one>
+    <button @click="operating">商品降价</button>
+    <product-list-two :products="products"></product-list-two>-->
+
+    <product-list-one></product-list-one>
+    <product-list-two></product-list-two>
   </div>
 </template>
 
@@ -16,13 +16,20 @@ export default {
   name: 'app',
   data () {
     return {
-      products: [
+      /*products: [
         {name: '马云', price: 200},
         {name: '马化腾', price: 140},
         {name: '马冬梅', price: 20},
         {name: '马蓉', price: 10}
-      ]
+      ]*/
     }
+  },
+  methods: {
+    /*operating () {
+     his.products.forEach( (item, index) => {
+       item.price = item.price -1
+     })
+    }*/
   },
   components: {
     'product-list-one': productListOne,
@@ -32,5 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+  body{
+    font-family: Ubuntu;
+    color: #555;
+  }
 </style>
