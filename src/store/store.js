@@ -29,13 +29,21 @@ export const store = new Vuex.Store({
           item.price -= payload
         })
       // }, 3000)
+    },
+    addPrice: (state, payload) => {
+      state.products.forEach((item) => {
+        item.price += payload
+      })
     }
   },
   actions: {
     reducePriceFn: (context, payload) => {
       setTimeout( ()=> {
         context.commit('reducePrice', payload)
-      }, 3000)
+      }, 2000)
+    },
+    addePriceFn: (context, payload) =>{
+      context.commit('addPrice', payload)
     }
   }
 })
