@@ -37,7 +37,7 @@
         // this.$store.commit('reducePrice')
 
         // 第三种方法
-        this.$store.dispatch('reducePrice')
+        this.$store.dispatch('reducePriceFn')
       }
     }
 
