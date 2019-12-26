@@ -7,11 +7,12 @@
         <span class="name">${{item.price}}</span>
       </li>
     </ul>
-    <button @click="operating">商品降价</button>
+    <button @click="reducePriceFn(4)">商品降价</button>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions} from 'vuex'
   export default {
     name: "productLlistOne",
     // 第一种方法，属性传值
@@ -22,23 +23,27 @@
       products() {
         return this.$store.state.products
       },
-      saleProducts() {
+      /*saleProducts() {
         return this.$store.getters.saleProducts
-      }
+      },*/
+      ...mapGetters(['saleProducts'])
     },
     methods: {
-      operating() {
+      reducePriceFn(amount) {
         // 第一种方法
         /*this.$store.state.products.forEach( (item) => {
           item.price -=1
         })*/
 
         // 第二种方法
-        // this.$store.commit('reducePrice')
+        // this.$store.commit('reducePrice') // 调用mutations里面的方法
 
         // 第三种方法
-        this.$store.dispatch('reducePriceFn')
-      }
+        // this.$store.dispatch('reducePriceFn', amount) // 调用actions里面的方法
+
+      },
+      ...mapActions(['reducePriceFn'])
+
     }
 
   }

@@ -23,18 +23,18 @@ export const store = new Vuex.Store({
     }
   },
   mutations: { // 更改数据  触发事件的时候用
-      reducePrice: state => {
+      reducePrice: (state, payload ) => {
         // setTimeout( ()=> {
         state.products.forEach((item) => {
-          item.price -= 1
+          item.price -= payload
         })
       // }, 3000)
     }
   },
-  action: {
-    reducePrice: (context) => {
+  actions: {
+    reducePriceFn: (context, payload) => {
       setTimeout( ()=> {
-        context.commit('reducePrice')
+        context.commit('reducePrice', payload)
       }, 3000)
     }
   }
